@@ -37,7 +37,7 @@ function BooksApp() {
   const searchBooks = debounce(300, false, (query) => {
     if (query.length > 0) {
       BooksAPI.search(query).then((books) => {
-        if (books === "error") {
+        if (books.error) {
           setMySearch([]);
         } else {
           setMySearch(books);
